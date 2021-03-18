@@ -1,12 +1,11 @@
 <?php
+namespace App\Model;
 
 use App\Model\Model;
 use App\Model\Container;
 
-class AuthModel extends Model
+class AlunoModel extends Model
 {
-
-
 
 
 }

@@ -16,8 +16,8 @@ abstract class Action
     {
         $this->view->page = $view;
 
-        if(file_exists("../App/Views/".$layout.".php")) {
-            require_once "../App/Views/".$layout.".php";
+        if(file_exists("../App/Views/Layouts/".$layout.".php")) {
+            require_once "../App/Views/Layouts/".$layout.".php";
         } else {
             $this->content();
         }

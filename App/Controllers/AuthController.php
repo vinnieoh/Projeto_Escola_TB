@@ -5,31 +5,31 @@
 namespace App\Controllers;
 
 use App\Controllers\Action;
-use APP\Model\Container;
+use App\Model\Container;
 
 class AuthController extends Action
 {
 
     public function authenticate()
     {
+
         $user = Container::getModel('User');
 
         $user->__set('email', $_POST['email']);
-        $user->__set('password', $_POST['password']);
+        $user->__set('senha', $_POST['senha']);
 
         $user->authenticate();
 
-        if ($user->__get('id') != '' && $user->__get('name')){
+        if ($user->__get('id') != '' && $user->__get('nome')){
             session_start();
             $_SESSION['id'] = $user->__get('id');
-            $_SESSION['name'] = $user->__get('name');
+            $_SESSION['nome'] = $user->__get('nome');
 
         }else{
             header('location: /?login=error');
         }
-        
-    }
 
+    }
 
     public function sair()
     {
@@ -37,5 +37,4 @@ class AuthController extends Action
         session_destroy();
         header('location: /');
     }
-
 }

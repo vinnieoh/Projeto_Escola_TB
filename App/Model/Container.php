@@ -7,7 +7,7 @@ class Container
 {
     public static function getModel($model)
     {
-        $class = "\\App\\Models\\".ucfirst($model);
+        $class = "\\App\\Model\\".ucfirst($model);
         $conn = Database::getConnection();
 
         return new $class($conn);

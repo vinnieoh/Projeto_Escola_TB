@@ -16,8 +16,8 @@ abstract class Action
     {
         $this->view->page = $view;
 
-        if(file_exists("../App/Views/Layouts/".$layout.".php")) {
-            require_once "../App/Views/Layouts/".$layout.".php";
+        if(file_exists("../App/Views/Layouts/".$layout.".phtml")) {
+            require_once "../App/Views/Layouts/".$layout.".phtml";
         } else {
             $this->content();
         }
@@ -31,7 +31,7 @@ abstract class Action
 
         $classAtual = strtolower(str_replace('Controller', '', $classAtual));
 
-        require_once "../App/View/".$classAtual."/".$this->view->page.".php";
+        require_once "../App/View/".$classAtual."/".$this->view->page.".phtml";
     }
 
 }

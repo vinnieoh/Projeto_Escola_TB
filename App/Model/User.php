@@ -41,7 +41,7 @@ class User extends Model
     //Sera usado na  classe authcontroller
     public  function authenticate(): User
     {
-        $query = "SELECT id, lnome, email FROM aluno where email = :email and senha = :senha";
+        $query = "SELECT id, nome, email FROM aluno where email = :email and senha = :senha";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':email', $this->__get('email'));
         $stmt->bindValue(':senha', $this->__get('senha'));
@@ -56,7 +56,5 @@ class User extends Model
 
         return $this;
     }
-
-
 
 }

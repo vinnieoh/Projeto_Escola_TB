@@ -21,6 +21,11 @@ class Route extends Bootstrap
             'action' => 'authenticate'
         );
 
+        $routes['indexAluno'] = array(
+            'route' => '/indexAluno',
+            'controller' => 'AppController',
+            'action' => 'indexAluno'
+        );
 
 
         $this->setRoutes($routes);

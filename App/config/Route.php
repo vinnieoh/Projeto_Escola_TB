@@ -15,16 +15,41 @@ class Route extends Bootstrap
             'action' => 'index'
         );
 
+        $routes['professor'] = array(
+            'route' => '/professor',
+            'controller' => 'indexController',
+            'action' => 'indexProfessor'
+        );
+
+        $routes['administracao'] = array(
+            'route' => '/administracao',
+            'controller' => 'indexController',
+            'action' => 'indexAdministracao'
+        );
+
+
         $routes['authenticate'] = array(
             'route' => '/authenticate',
             'controller' => 'AuthController',
             'action' => 'authenticate'
         );
 
-        $routes['indexAluno'] = array(
-            'route' => '/indexAluno',
+        $routes['alunoHome'] = array(
+            'route' => '/alunoHome',
             'controller' => 'AppController',
-            'action' => 'indexAluno'
+            'action' => 'homeAluno'
+        );
+
+        $routes['professorHome'] = array(
+            'route' => '/professor',
+            'controller' => 'AppController',
+            'action' => 'professorHome'
+        );
+
+        $routes['administracaoHome'] = array(
+            'route' => '/administracaoHome',
+            'controller' => 'AppController',
+            'action' => 'administracaoHome'
         );
 
 

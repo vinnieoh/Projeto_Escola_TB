@@ -18,7 +18,7 @@ class Database
             $conn = new PDO($env['dsn'], $env['username'], $env['password']);
 
         } catch (PDOException $e){
-            die("Erro: " . $e->getMessage());
+            die("Erro Database: " . $e->getMessage());
         }
 
         return $conn;

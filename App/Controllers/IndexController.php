@@ -17,9 +17,18 @@ class IndexController extends Action
         $this->render('index');
     }
 
-    public function recupera()
+    public function indexProfessor()
     {
-
+        $this->view->login = isset($_GET['login']) ? $_GET['login'] : '';
+        $this->render('indexProfessor');
     }
+
+    public function indexAdministracao()
+    {
+        $this->view->login = isset($_GET['login']) ? $_GET['login'] : '';
+        $this->render('indexAdministracao');
+    }
+
+
 
 }

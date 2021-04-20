@@ -4,8 +4,10 @@
             <div class="card">
                 <form class="box" method="post" action="/authenticate">
                     <h1>Escola TB</h1>
+                    <h2>Espaço Aluno</h2>
                     <input type="text" name="email" placeholder="E-mail">
                     <input type="password" name="senha" placeholder="Senha">
+                    <input type="submit" name="" value="Login">
                     <?php if($this->view->login == 'error'){?>
                         <div class="row">
                             <div class="col">
@@ -13,7 +15,7 @@
                             </div>
                         </div>
                     <?php }?>
-                    <input type="submit" name="" value="Login" href="#">
+
                 </form>
             </div>
         </div>

@@ -7,7 +7,8 @@ use App\Model\Container;
 class User extends Model
 {
     private $id;
-    private $nome;
+    private $lname;
+    private $fname;
     private $email;
     private $senha;
 
@@ -38,29 +39,29 @@ class User extends Model
         return $valid;
     }
 
-    //Sera usado na  classe authcontroller  -> Aluno
+    //Sera usado na  classe authcontroller -> Aluno
     public  function authenticate(): User
     {
-        $query = "SELECT id, nome, email FROM aluno where email = :email and senha = :senha";
+        $query = "SELECT id, fname, lname, email FROM aluno WHERE email =:email AND senha =:senha";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':email', $this->__get('email'));
         $stmt->bindValue(':senha', $this->__get('senha'));
         $stmt->execute();
-
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        if($user['id'] != '' && $user['nome'] != '') {
+        if($user['id'] != '' && $user['fname'] != '' && $user['lname'] != '') {
             $this->__set('id', $user['id']);
-            $this->__set('nome', $user['nome']);
+            $this->__set('fname', $user['fname']);
+            $this->__set('lname', $user['lname']);
         }
 
         return $this;
     }
 
 
-    public  function authenticateAluno(): User
+    public  function authenticateAdministracao(): User
     {
-        $query = "SELECT id, nome, email FROM aluno where email = :email and senha = :senha";
+        $query = "SELECT id, fname, lname, email FROM administracao WHERE email =:email AND senha =:senha";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':email', $this->__get('email'));
         $stmt->bindValue(':senha', $this->__get('senha'));
@@ -68,9 +69,10 @@ class User extends Model
 
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        if($user['id'] != '' && $user['nome'] != '') {
+        if($user['id'] != '' && $user['fname'] != '' && $user['lname'] != '') {
             $this->__set('id', $user['id']);
-            $this->__set('nome', $user['nome']);
+            $this->__set('fname', $user['fname']);
+            $this->__set('lname', $user['lname']);
         }
 
         return $this;
@@ -78,7 +80,7 @@ class User extends Model
 
     public  function authenticateProfessor(): User
     {
-        $query = "SELECT id, nome, email FROM aluno where email = :email and senha = :senha";
+        $query = "SELECT id, fname, lname, email FROM professor WHERE email =:email AND senha =:senha";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':email', $this->__get('email'));
         $stmt->bindValue(':senha', $this->__get('senha'));
@@ -86,9 +88,10 @@ class User extends Model
 
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        if($user['id'] != '' && $user['nome'] != '') {
+        if($user['id'] != '' && $user['fname'] != '' && $user['lname'] != '') {
             $this->__set('id', $user['id']);
-            $this->__set('nome', $user['nome']);
+            $this->__set('fname', $user['fname']);
+            $this->__set('lname', $user['lname']);
         }
 
         return $this;

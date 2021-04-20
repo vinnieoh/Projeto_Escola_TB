@@ -12,31 +12,39 @@ class AppController extends Action
     public function alunoHome()
     {
         session_start();
-        echo 'Deu certo Aluno!';
 
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
+        if ($_SESSION['id'] != '' && $_SESSION['lname'] != '' && $_SESSION['fname']){
+
+            $this->render('alunoHome');
+
+        }else{
+            header('location: /?login=error');
+        }
+
     }
 
     public function professorHome()
     {
         session_start();
-        echo 'Deu certo Professor!';
+        if ($_SESSION['id'] != '' && $_SESSION['lname'] != '' && $_SESSION['fname']){
 
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
+            $this->render('professorHome');
+
+        }else{
+            header('location: /?login=error');
+        }
     }
 
     public function administracaoHome()
     {
         session_start();
-        echo 'Deu certo Administracao!';
+        if ($_SESSION['id'] != '' && $_SESSION['lname'] != '' && $_SESSION['fname'] != ''){
 
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
+            $this->render('administracaoHome');
+
+        }else{
+            header('location: /?login=error');
+        }
     }
 
 }

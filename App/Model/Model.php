@@ -15,12 +15,4 @@ abstract class Model
         $this->db = $db;
     }
 
-    public function __get($attribute) {
-        return $this->$attribute;
-    }
-
-    public function __set($attribute, $valor) {
-        $this->$attribute = $valor;
-    }
-
 }

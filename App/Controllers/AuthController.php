@@ -20,13 +20,24 @@ class AuthController extends Action
         $user->__set('email', $_POST['email']);
         $user->__set('senha', $_POST['senha']);
 
+        echo '<pre>';
+        print_r($user);
+        echo '</pre>';
+
+
         $user->authenticate();
-        
-        if ($user->__get('id') != '' && $user->__get('nome')){
+
+        echo '<pre>';
+        print_r($user);
+        echo '</pre>';
+
+
+        if ($user->__get('id') != '' && $user->__get('fname') && $user->__get('lnome')){
             session_start();
             $_SESSION['id'] = $user->__get('id');
-            $_SESSION['nome'] = $user->__get('nome');
-            
+            $_SESSION['fname'] = $user->__get('fname');
+            $_SESSION['lnome'] = $user->__get('lnome');
+
             header('location: /alunoHome');
 
         }else{
@@ -45,10 +56,11 @@ class AuthController extends Action
 
         $user->authenticateProfessor();
 
-        if ($user->__get('id') != '' && $user->__get('nome')){
+        if ($user->__get('id') != '' && $user->__get('fnome') && $user->__get('lnome')){
             session_start();
             $_SESSION['id'] = $user->__get('id');
-            $_SESSION['nome'] = $user->__get('nome');
+            $_SESSION['fnome'] = $user->__get('fnome');
+            $_SESSION['lnome'] = $user->__get('lnome');
 
             header('location: /professorHome');
 
@@ -68,10 +80,11 @@ class AuthController extends Action
 
         $user->authenticateAdministracao();
 
-        if ($user->__get('id') != '' && $user->__get('nome')){
+        if ($user->__get('id') != '' && $user->__get('fnome') && $user->__get('lnome')){
             session_start();
             $_SESSION['id'] = $user->__get('id');
-            $_SESSION['nome'] = $user->__get('nome');
+            $_SESSION['fnome'] = $user->__get('fnome');
+            $_SESSION['lnome'] = $user->__get('lnome');
 
             header('location: /administracaoHome');
 

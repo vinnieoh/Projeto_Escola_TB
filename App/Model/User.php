@@ -47,6 +47,7 @@ class User extends Model
         $stmt->bindValue(':email', $this->__get('email'));
         $stmt->bindValue(':senha', $this->__get('senha'));
         $stmt->execute();
+
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if($user['id'] != '' && $user['fname'] != '' && $user['lname'] != '') {

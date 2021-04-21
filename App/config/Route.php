@@ -34,10 +34,22 @@ class Route extends Bootstrap
             'action' => 'authenticate'
         );
 
+        $routes['authenticateProfessor'] = array(
+            'route' => '/authenticateProfessor',
+            'controller' => 'AuthController',
+            'action' => 'authenticateProfessor'
+        );
+
+        $routes['authenticateAdministracao'] = array(
+            'route' => '/authenticateAdministracao',
+            'controller' => 'AuthController',
+            'action' => 'authenticateAdministracao'
+        );
+
         $routes['alunoHome'] = array(
             'route' => '/alunoHome',
             'controller' => 'AppController',
-            'action' => 'homeAluno'
+            'action' => 'alunohome'
         );
 
         $routes['professorHome'] = array(

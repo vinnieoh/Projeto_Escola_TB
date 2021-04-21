@@ -20,31 +20,23 @@ class AuthController extends Action
         $user->__set('email', $_POST['email']);
         $user->__set('senha', $_POST['senha']);
 
+        /* Teste
         echo '<pre>';
         print_r($user);
-        echo '</pre>';
-
+        echo '</pre>';*/
 
         $user->authenticate();
 
-        echo '<pre>';
-        print_r($user);
-        echo '</pre>';
+        $this->validaAuthnticate($user);
 
+        $_SESSION['id'] = $user->__get('id');
+        $_SESSION['fname'] = $user->__get('fname');
+        $_SESSION['lnome'] = $user->__get('lnome');
 
-        if ($user->__get('id') != '' && $user->__get('fname') && $user->__get('lnome')){
-            session_start();
-            $_SESSION['id'] = $user->__get('id');
-            $_SESSION['fname'] = $user->__get('fname');
-            $_SESSION['lnome'] = $user->__get('lnome');
-
-            header('location: /alunoHome');
-
-        }else{
-            header('location: /?login=error');
-        }
+        header('location: /alunoHome');
 
     }
+
 
     public function authenticateProfessor()
     {
@@ -54,19 +46,16 @@ class AuthController extends Action
         $user->__set('email', $_POST['email']);
         $user->__set('senha', $_POST['senha']);
 
+
         $user->authenticateProfessor();
 
-        if ($user->__get('id') != '' && $user->__get('fnome') && $user->__get('lnome')){
-            session_start();
-            $_SESSION['id'] = $user->__get('id');
-            $_SESSION['fnome'] = $user->__get('fnome');
-            $_SESSION['lnome'] = $user->__get('lnome');
+        $this->validaAuthnticate($user);
 
-            header('location: /professorHome');
+        $_SESSION['id'] = $user->__get('id');
+        $_SESSION['fnome'] = $user->__get('fnome');
+        $_SESSION['lnome'] = $user->__get('lnome');
 
-        }else{
-            header('location: /?login=error');
-        }
+        header('location: /professorHome');
 
     }
 
@@ -78,17 +67,24 @@ class AuthController extends Action
         $user->__set('email', $_POST['email']);
         $user->__set('senha', $_POST['senha']);
 
+
         $user->authenticateAdministracao();
 
-        if ($user->__get('id') != '' && $user->__get('fnome') && $user->__get('lnome')){
-            session_start();
-            $_SESSION['id'] = $user->__get('id');
-            $_SESSION['fnome'] = $user->__get('fnome');
-            $_SESSION['lnome'] = $user->__get('lnome');
+        $this->validaAuthnticate($user);
 
-            header('location: /administracaoHome');
+        $_SESSION['id'] = $user->__get('id');
+        $_SESSION['fnome'] = $user->__get('fnome');
+        $_SESSION['lnome'] = $user->__get('lnome');
 
-        }else{
+        header('location: /administracaoHome');
+
+
+    }
+
+    public function validaAuthnticate($model)
+    {
+        session_start();
+        if ($model->__get('id') == '' || $model->__get('fname') == '' || $model->__get('lnome') == ''){
             header('location: /?login=error');
         }
 

@@ -19,4 +19,16 @@ class ProfessorModel extends Model
         $this->$attribute = $valor;
     }
 
+    public function notaAluno()
+    {
+
+    }
+
+    public function updateNota()
+    {
+
+    }
+
+
+
 }

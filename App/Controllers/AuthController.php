@@ -29,6 +29,7 @@ class AuthController extends Action
 
         $this->validaAuthnticate($user);
 
+
         $_SESSION['id'] = $user->__get('id');
         $_SESSION['fname'] = $user->__get('fname');
         $_SESSION['lnome'] = $user->__get('lnome');
@@ -67,7 +68,6 @@ class AuthController extends Action
         $user->__set('email', $_POST['email']);
         $user->__set('senha', $_POST['senha']);
 
-
         $user->authenticateAdministracao();
 
         $this->validaAuthnticate($user);
@@ -84,6 +84,7 @@ class AuthController extends Action
     public function validaAuthnticate($model)
     {
         session_start();
+
         if ($model->__get('id') == '' || $model->__get('fname') == '' || $model->__get('lnome') == ''){
             header('location: /?login=error');
         }

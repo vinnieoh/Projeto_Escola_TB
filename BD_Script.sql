@@ -118,7 +118,7 @@ CREATE TABLE notas(
 /*Inserçao tabela Aluno - 30 alunos*/
 
 /* Turma - Primeiro Ano */
-insert into aluno values (1, 'Benedita', 'Emanuelly Araújo', '80207423440', 'beneditaislyaraujo_@alunos.tb.com', 'yDPmHcp554', 'Masculino', '07/03/2003');
+insert into aluno values (1, 'Benedita', 'Emanuelly Araújo', '80207423440', 'beneditaislyaraujo_@alunos.tb.com', '123456789', 'Masculino', '07/03/2003');
 insert into endereco values(1, 'Passagem Bom Futuro', 'Itaiteua','Belém', 'PA', 1);
 insert into telefone_aluno values(1, '91', '983741311', 'CEL', 1);
 

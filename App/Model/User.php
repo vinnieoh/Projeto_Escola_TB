@@ -20,24 +20,6 @@ class User extends Model
         $this->$attribute = $valor;
     }
 
-    public function validarCadastro(): bool
-    {
-        $valid = true;
-
-        if(strlen($this->__get('nome')) < 3) {
-            $valid = false;
-        }
-
-        if(strlen($this->__get('email')) < 3) {
-            $valid = false;
-        }
-
-        if(strlen($this->__get('senha')) < 3) {
-            $valid = false;
-        }
-
-        return $valid;
-    }
 
     //Sera usado na  classe authcontroller -> Aluno
     public  function authenticate(): User
@@ -98,5 +80,32 @@ class User extends Model
 
         return $this;
     }
+
+    public function validarCadastro(): bool
+    {
+        $valid = true;
+
+        if(strlen($this->__get('nome')) < 3) {
+            $valid = false;
+        }
+
+        if(strlen($this->__get('email')) < 3) {
+            $valid = false;
+        }
+
+        if(strlen($this->__get('senha')) < 3) {
+            $valid = false;
+        }
+
+        return $valid;
+    }
+
+    public function salvarUsuario()
+    {
+
+
+
+    }
+
 
 }

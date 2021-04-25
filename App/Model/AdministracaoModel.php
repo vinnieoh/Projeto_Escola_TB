@@ -3,6 +3,7 @@ namespace App\Model;
 
 use App\Model\Model;
 use App\Model\Container;
+use App\Model\user;
 
 class AdministracaoModel extends Model
 {
@@ -19,5 +20,48 @@ class AdministracaoModel extends Model
         $this->$attribute = $valor;
     }
 
+    public function consultaAluno()
+    {
+
+    }
+
+    public function consultaProfessor()
+    {
+
+    }
+
+    public function consultaAdm()
+    {
+
+    }
+
+    public function criarAluno()
+    {
+
+    }
+
+    public function criarProfessor()
+    {
+
+    }
+
+    public function criarAdm(){
+
+    }
+
+    public function updateAluno()
+    {
+
+    }
+
+    public function updateProfessor()
+    {
+
+    }
+
+    public function updateAdm()
+    {
+
+    }
 
 }

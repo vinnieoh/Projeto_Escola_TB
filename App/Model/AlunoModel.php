@@ -20,6 +20,15 @@ class AlunoModel extends Model
     }
 
 
+    public function consultaNota()
+    {
+
+    }
+
+    public function tabalho()
+    {
+
+    }
 
 
 }

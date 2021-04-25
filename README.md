@@ -7,7 +7,6 @@ beneditaislyaraujo_@alunos.tb.com / yDPmHcp554
 <br>
 mmarliandreiasarahdaluz@alunos.tb.com / BUho0wkDco
 <br>
-
 Professor
 <br>
 veratereza@professor.tb.com / vera54321

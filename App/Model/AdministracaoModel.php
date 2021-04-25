@@ -12,6 +12,21 @@ class AdministracaoModel extends Model
     private $lname;
     private $email;
 
+    private $fnameUser;
+    private $lnameUser;
+    private $emailUser;
+    private $senhaUser;
+    private $cpf;
+    private $sexo;
+    private $data;
+    private $ddd;
+    private $numero;
+    private $tipo;
+    private $endereco;
+    private $bairro;
+    private $cidade;
+    private $estado;
+
     public function __get($attribute) {
         return $this->$attribute;
     }
@@ -61,6 +76,33 @@ class AdministracaoModel extends Model
 
     public function updateAdm()
     {
+
+    }
+
+
+    public function validarCadastro(): bool
+    {
+        $valid = true;
+
+        if(strlen($this->__get('nome')) < 3) {
+            $valid = false;
+        }
+
+        if(strlen($this->__get('email')) < 3) {
+            $valid = false;
+        }
+
+        if(strlen($this->__get('senha')) < 3) {
+            $valid = false;
+        }
+
+        return $valid;
+    }
+
+    public function salvarUsuario()
+    {
+
+
 
     }
 

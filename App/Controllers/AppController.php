@@ -65,34 +65,14 @@ class AppController extends Action
 
     public function criarAluno()
     {
-        $this->view->criarAluno = array(
-            'fname' =>'',
-            'lname' =>'',
-            'email' =>'',
-            'senha' =>'',
-            'cpf' =>'',
-            'sexo' =>'',
-            'data'=> '',
-            'ddd' =>'',
-            'numero' =>'',
-            'tipo' =>'',
-            'endereco' =>'',
-            'bairro' =>'',
-            'cidade' =>'',
-            'estado' =>''
-        );
+        $user = Container::getModel('AdministrcaoModel');
+
+        
 
 
         $this->render('criarAluno');
     }
 
-    public function registraAluno()
-    {
-        $user = Container::getModel('AdministrcaoModel');
-
-
-
-    }
 
     public function criarProfessor()
     {

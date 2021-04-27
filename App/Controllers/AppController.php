@@ -1,5 +1,5 @@
 <?php
-
+/** Responsavel por gerencia as views da pasta app */
 namespace App\Controllers;
 
 use App\Controllers\Action;
@@ -65,9 +65,9 @@ class AppController extends Action
 
     public function criarAluno()
     {
-        $user = Container::getModel('AdministrcaoModel');
+       //$user = Container::getModel('AdministrcaoModel');
 
-        
+
 
 
         $this->render('criarAluno');
@@ -76,28 +76,13 @@ class AppController extends Action
 
     public function criarProfessor()
     {
-        $this->view->criarProfessor = array(
-            'fname' =>'',
-            'lname' =>'',
-            'email' =>'',
-            'senha' =>'',
-            'formacao' =>'',
-            'ddd' =>'',
-            'numero' =>'',
-            'tipo' =>'',
-        );
+
 
         $this->render('criarProfessor');
     }
 
     public function criarAdm(){
-        $this->view->criarAdm = array(
-            'fname' =>'',
-            'lname' =>'',
-            'email' =>'',
-            'senha' =>'',
-            'nivel' =>''
-        );
+
 
         $this->render('criarAdm');
     }

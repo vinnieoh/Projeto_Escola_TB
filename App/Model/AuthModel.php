@@ -1,4 +1,5 @@
 <?php
+/** Essa classe verifica se pode fazer uma criacao de um usuario*/
 
 use App\Model\Model;
 use App\Model\Container;
@@ -7,6 +8,8 @@ class AuthModel extends Model
 {
     private $id;
     private $email;
+    private $senhar;
+    private $tabela;
 
     public function __get($attribute) {
         return $this->$attribute;
@@ -16,12 +19,14 @@ class AuthModel extends Model
         $this->$attribute = $valor;
     }
 
-
     public function validarCadastro(): bool
     {
         $valid = true;
 
-        if(strlen($this->__get('nome')) < 3) {
+        if(strlen($this->__get('fname')) < 3) {
+            $valid = false;
+        }
+        if(strlen($this->__get('lname')) < 3) {
             $valid = false;
         }
 
@@ -36,9 +41,9 @@ class AuthModel extends Model
         return $valid;
     }
 
-    public function validarId()
+    public function validarId($id, $tabela)
     {
-        $query = "SELECT idaluno FROM ALUNO WHERE idaluno = :id";
+        $query = "SELECT $id FROM $tabela WHERE $id = :$id";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':idaluno', $this->__get('id'));
         $stmt->execute();
@@ -47,9 +52,9 @@ class AuthModel extends Model
 
     }
 
-    public function validarEmail()
+    public function validarEmail($email, $tabela)
     {
-        $query = "SELECT email FROM ALUNO WHERE email = :email";
+        $query = "SELECT $email FROM $tabela WHERE $email = :$email";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':email', $this->__get('email'));
         $stmt->execute();

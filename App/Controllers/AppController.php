@@ -69,6 +69,7 @@ class AppController extends Action
 
        $user = Container::getModel('AdministrcaoModel');
 
+       $user->__set('', $_SESSION['']);
 
 
     }

@@ -65,12 +65,12 @@ class AppController extends Action
 
     public function criarAluno()
     {
-       //$user = Container::getModel('AdministrcaoModel');
-
-
-
-
         $this->render('criarAluno');
+
+       $user = Container::getModel('AdministrcaoModel');
+
+
+
     }
 
 

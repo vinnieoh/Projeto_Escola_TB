@@ -3,7 +3,6 @@ namespace App\Model;
 
 use App\Model\Model;
 use App\Model\Container;
-use App\Model\user;
 
 class AdministracaoModel extends Model
 {
@@ -182,26 +181,6 @@ class AdministracaoModel extends Model
     public function updateAdm()
     {
 
-    }
-
-
-    public function validarCadastro(): bool
-    {
-        $valid = true;
-
-        if(strlen($this->__get('nome')) < 3) {
-            $valid = false;
-        }
-
-        if(strlen($this->__get('email')) < 3) {
-            $valid = false;
-        }
-
-        if(strlen($this->__get('senha')) < 3) {
-            $valid = false;
-        }
-
-        return $valid;
     }
 
 
